@@ -63,7 +63,7 @@ ATOM BWindow::MyRegisterClass()
 
 void BWindow::WindowCreate()
 {
-	m_hWnd = CreateWindowW(WINDOW_NAME, L"주뇽's Gameframework", WS_OVERLAPPEDWINDOW,
+	m_hWnd = CreateWindowW(WINDOW_NAME, L"Defenderce", WS_OVERLAPPEDWINDOW,
 		CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, m_hInstance, nullptr);
 }
 
@@ -81,10 +81,8 @@ int BWindow::MessageLoop()
 {
 	MSG msg;
 	memset(&msg, 0, sizeof(msg));
-	// PeekMessage
 	while (true)
 	{
-		// 메시지가 있으면 여기
 		if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
 		{
 			if (WM_QUIT == msg.message)
@@ -92,13 +90,10 @@ int BWindow::MessageLoop()
 			TranslateMessage(&msg);
 			DispatchMessage(&msg);
 		}
-		// 우리의 게임 루프가 돌거야.
 		else
 		{
-			// "게임을 진행하지."
 			Core::GetInst()->Progress();
 		}
-
 	}
 
 	return (int)msg.wParam;
