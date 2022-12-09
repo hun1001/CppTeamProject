@@ -1,12 +1,12 @@
 #pragma once
 #include "Scene.h"
-class Scene_01 :
+class Scene_Game :
     public Scene
 {
 private:
 public:
-    Scene_01();
-    virtual ~Scene_01();
+    Scene_Game();
+    virtual ~Scene_Game();
 public:
     virtual void Enter() override;
     virtual void Exit() override;

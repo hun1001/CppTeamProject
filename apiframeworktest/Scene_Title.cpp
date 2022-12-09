@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "Scene_Start.h"
+#include "Scene_Title.h"
 #include "Object.h"
 #include "Player.h"
 #include "Monster.h"
@@ -82,6 +82,6 @@ void Scene_Start::Update()
 	Scene::Update();
 	if (KEY_TAP(KEY::ENTER))
 	{
-		ChangeScene(SCENE_TYPE::SCENE_01);
+		ChangeScene(SCENE_TYPE::GAME);
 	}
 }
