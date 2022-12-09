@@ -31,7 +31,7 @@ void SceneMgr::ChangeScene(SCENE_TYPE _eNext)
 void SceneMgr::Init()
 {
 	// Scene »ý¼º
-	m_arrScene[(UINT)SCENE_TYPE::TITLE] = new Scene_Start;
+	m_arrScene[(UINT)SCENE_TYPE::TITLE] = new Scene_Title;
 	m_arrScene[(UINT)SCENE_TYPE::TITLE]->SetName(L"Title Scene");
 	m_arrScene[(UINT)SCENE_TYPE::GAME] = new Scene_Game;
 	m_arrScene[(UINT)SCENE_TYPE::GAME]->SetName(L"Game Scene");

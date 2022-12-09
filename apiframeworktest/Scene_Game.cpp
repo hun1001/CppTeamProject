@@ -21,8 +21,4 @@ void Scene_Game::Exit()
 void Scene_Game::Update()
 {
 	Scene::Update();
-	if (KEY_TAP(KEY::ENTER))
-	{
-		ChangeScene(SCENE_TYPE::TITLE);
-	}
 }

@@ -1,6 +1,6 @@
 #pragma once
 #include "Scene.h"
-class Scene_Start :
+class Scene_Title :
     public Scene
 {
 public:
@@ -8,7 +8,7 @@ public:
     virtual void Exit() override;
     virtual void Update() override;
 public:
-    Scene_Start();
-    virtual ~Scene_Start();
+    Scene_Title();
+    virtual ~Scene_Title();
 };
 
