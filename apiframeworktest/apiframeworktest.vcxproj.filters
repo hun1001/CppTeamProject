@@ -35,9 +35,6 @@
     <Filter Include="Engine\05. Scene">
       <UniqueIdentifier>{c299ed7c-4b0b-48aa-8a09-2965a8518214}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\04. Object\Player">
-      <UniqueIdentifier>{49afdb6e-7b7a-4275-aa72-b49b4860c87a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Engine\04. Object\Monster">
       <UniqueIdentifier>{e686519b-9a51-4335-8ed1-4bf722bfbc75}</UniqueIdentifier>
     </Filter>
@@ -83,6 +80,9 @@
     <Filter Include="Engine\05. Scene\Scene_Game">
       <UniqueIdentifier>{08fc7cdf-bc88-4ea8-9fe5-a0ba2266348f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\04. Object\Turret">
+      <UniqueIdentifier>{49afdb6e-7b7a-4275-aa72-b49b4860c87a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.h">
@@ -127,8 +127,8 @@
     <ClInclude Include="Scene_Title.h">
       <Filter>Engine\05. Scene\Scene_Title</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Engine\04. Object\Player</Filter>
+    <ClInclude Include="Turret.h">
+      <Filter>Engine\04. Object\Turret</Filter>
     </ClInclude>
     <ClInclude Include="Monster.h">
       <Filter>Engine\04. Object\Monster</Filter>
@@ -224,8 +224,8 @@
     <ClCompile Include="Scene_Title.cpp">
       <Filter>Engine\05. Scene\Scene_Title</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Engine\04. Object\Player</Filter>
+    <ClCompile Include="Turret.cpp">
+      <Filter>Engine\04. Object\Turret</Filter>
     </ClCompile>
     <ClCompile Include="Monster.cpp">
       <Filter>Engine\04. Object\Monster</Filter>

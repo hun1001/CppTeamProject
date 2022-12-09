@@ -2,23 +2,23 @@
 #include "Object.h"
 
 class Image;
-class Player :
+class Turret :
     public Object
 {
 private:
     Image* m_pImage;
 public:
-    Player();
+    Turret();
     //Player(const Player& _origin) 
     //    : Object(_origin)
     //    , m_pImage(_origin.m_pImage)
     //{}
-    ~Player();
+    ~Turret();
 private:
     void CreateBullet();
 
 //    Player* Clone{ return new Player(*this); }
-    CLONE(Player);
+    CLONE(Turret);
 public:
     void Update()       override;
     void Render(HDC _dc) override;

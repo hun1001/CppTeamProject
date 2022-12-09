@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "Player.h"
+#include "Turret.h"
 #include "KeyMgr.h"
 #include "TimeMgr.h"
 #include "Bullet.h"
@@ -11,7 +11,7 @@
 #include "Collider.h"
 #include "Animator.h"
 #include "Animation.h"
-Player::Player()
+Turret::Turret()
 {
 	// collider »õ¼º
 	CreateCollider();
@@ -30,12 +30,12 @@ Player::Player()
 	for(size_t i=0;i<pAnim->GetMaxFrame();i++)
 		pAnim->GetFrame(i).vOffset = Vec2(10.f, -50.f);
 }
-Player::~Player()
+Turret::~Turret()
 {
 	//if(nullptr !=m_pImage)
 	//	delete m_pImage;
 }
-void Player::Update()
+void Turret::Update()
 {
 	Vec2 vPos = GetPos();
 	if(KEY_HOLD(KEY::UP))
@@ -62,7 +62,7 @@ void Player::Update()
 	GetAnimator()->Update();
 }
 
-void Player::CreateBullet()
+void Turret::CreateBullet()
 {
 	Vec2 vBulletPos = GetPos();
 	vBulletPos.y -= GetScale().y / 2.f;
@@ -77,7 +77,8 @@ void Player::CreateBullet()
 	//Scene* pCurScene = SceneMgr::GetInst()->GetCurScene();
 	//pCurScene->AddObject(pBullet,GROUP_TYPE::BULLET);
 }
-void Player::Render(HDC _dc)
+
+void Turret::Render(HDC _dc)
 {
 	Component_Render(_dc);
 	/*int Width = (int)m_pImage->GetWidth();
