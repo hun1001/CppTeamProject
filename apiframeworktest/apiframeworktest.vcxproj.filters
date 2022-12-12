@@ -133,7 +133,7 @@
     <ClInclude Include="Monster.h">
       <Filter>Engine\04. Object\Monster</Filter>
     </ClInclude>
-    <ClInclude Include="Bullet.h">
+    <ClInclude Include="Missile.h">
       <Filter>Engine\04. Object\Bullet</Filter>
     </ClInclude>
     <ClInclude Include="Res.h">
@@ -230,7 +230,7 @@
     <ClCompile Include="Monster.cpp">
       <Filter>Engine\04. Object\Monster</Filter>
     </ClCompile>
-    <ClCompile Include="Bullet.cpp">
+    <ClCompile Include="Missile.cpp">
       <Filter>Engine\04. Object\Bullet</Filter>
     </ClCompile>
     <ClCompile Include="Res.cpp">

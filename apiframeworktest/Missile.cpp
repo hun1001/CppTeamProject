@@ -1,11 +1,11 @@
 #include "pch.h"
-#include "Bullet.h"
+#include "Missile.h"
 #include "TimeMgr.h"
 #include "Image.h"
 #include "PathMgr.h"
 #include "ResMgr.h"
 #include "Collider.h"
-Bullet::Bullet() 
+Missile::Missile() 
 	: m_fTheta(3.f * M_PI/2.f)
 	, m_vDir(Vec2(1.f,1.f))
 {
@@ -15,12 +15,12 @@ Bullet::Bullet()
 	GetCollider()->SetScale(Vec2(15.f, 15.f));
 }
 
-Bullet::~Bullet()
+Missile::~Missile()
 {
 }
 
 
-void Bullet::Update()
+void Missile::Update()
 {
  	Vec2 vPos = GetPos();
 	//vPos.x += 700.f * fDT; 
@@ -32,7 +32,7 @@ void Bullet::Update()
 	SetPos(vPos);
 }
 
-void Bullet::Render(HDC _dc)
+void Missile::Render(HDC _dc)
 {
 	//Vec2 vPos = GetPos();
 	//Vec2 vScale = GetScale();
@@ -56,7 +56,7 @@ void Bullet::Render(HDC _dc)
 	Component_Render(_dc);
 }
 
-void Bullet::EnterCollision(Collider* _pOther)
+void Missile::EnterCollision(Collider* _pOther)
 {
 	Object* pOtherObj = _pOther->GetObj();
 	if (pOtherObj->GetName() == L"Monster")

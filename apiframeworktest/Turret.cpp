@@ -68,7 +68,7 @@ void Turret::CreateBullet()
 	vBulletPos.y -= GetScale().y / 2.f;
 
 	// 
-	Bullet* pBullet = new Bullet;
+	Missile* pBullet = new Missile;
 	pBullet->SetName(L"Bullet_Player");
 	pBullet->SetPos(vBulletPos);
 	pBullet->SetScale(Vec2(25.f, 25.f));

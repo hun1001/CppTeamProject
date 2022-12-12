@@ -1,7 +1,7 @@
 #pragma once
 #include "Object.h"
 class Image;
-class Bullet :
+class Missile :
     public Object
 {
 private:
@@ -29,9 +29,9 @@ public:
     virtual void EnterCollision(Collider* _pOther);
 
 //    Bullet* Clone() { return new Bullet(*this); }
-    CLONE(Bullet);
+    CLONE(Missile);
 public:
-    Bullet();
-    ~Bullet();
+    Missile();
+    ~Missile();
 };
 
