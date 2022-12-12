@@ -5,9 +5,7 @@
 #include "PathMgr.h"
 #include "ResMgr.h"
 #include "Collider.h"
-Missile::Missile() 
-	: m_fTheta(3.f * M_PI/2.f)
-	, m_vDir(Vec2(1.f,1.f))
+Missile::Missile() : m_fTheta(3.f * M_PI/2.f), m_vDir(Vec2(1.f,1.f))
 {
 	m_pImage = ResMgr::GetInst()->ImgLoad(L"BulletImg", L"Image\\Bullet.bmp");
 	m_vDir.Normalize();
