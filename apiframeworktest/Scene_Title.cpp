@@ -20,7 +20,6 @@ Scene_Title::~Scene_Title()
 }
 void Scene_Title::Enter()
 {
-
 }
 
 void Scene_Title::Exit()
@@ -31,5 +30,6 @@ void Scene_Title::Exit()
 
 void Scene_Title::Update()
 {  
+	Rectangle(Core::GetInst()->GetMainDC(), 0, 0, 800, 600);
 	Scene::Update();
 }
