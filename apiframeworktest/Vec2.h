@@ -36,6 +36,11 @@ public:
 	{
 		return Vec2(x * (float)_i, y * (float)_i);
 	}
+	void operator = (const POINT _pt)
+	{
+		x = (float)_pt.x;
+		y = (float)_pt.y;
+	}
 	void operator += (Vec2 _vOther)
 	{
 		x += _vOther.x;

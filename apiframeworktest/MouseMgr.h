@@ -14,11 +14,8 @@ public:
 	void Update();
 	
 public:
-	Vec2 GetWindowMousePos();
-	Vec2 GetScreenMousePos();
+	const Vec2 GetMousePos();
 
 private:
-	Vec2 m_windowMousePos;
-	Vec2 m_screenMousePos;
+	Vec2 m_mousePos;
 };
-

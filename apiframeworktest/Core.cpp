@@ -8,6 +8,8 @@
 #include "CollisionMgr.h"
 #include "EventMgr.h"
 #include "SoundMgr.h"
+#include "MouseMgr.h"
+
 Core::Core()
 	: m_hDC(0)
 	, m_ptResolution{}
@@ -54,6 +56,7 @@ int Core::Init(HWND _hWnd, POINT _ptResolution)
 	TimeMgr::GetInst()->Init();
 	KeyMgr::GetInst()->Init();
 	SceneMgr::GetInst()->Init();
+	MouseMgr::GetInst()->Init();
 	
 	return S_OK;
 }
@@ -69,6 +72,7 @@ void Core::Update()
 	// ==== Manager Update====
 	TimeMgr::GetInst()->Update();
 	KeyMgr::GetInst()->Update();
+	MouseMgr::GetInst()->Update();
 
 	// ==== Scene Update ====
 	SceneMgr::GetInst()->Update();
@@ -91,7 +95,6 @@ void Core::Render()
 		TimeMgr::GetInst()->Render();
 	// === 이벤트 지연 처리 === //
 		EventMgr::GetInst()->Update();
-
 }
 
 void Core::CreateBrushPen()

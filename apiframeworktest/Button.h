@@ -9,6 +9,7 @@ public:
 	
 public:
 	void Update() override;
+	void Render(HDC _dc) override;
 	
 private:
 	Vec2 m_vPos;
