@@ -9,6 +9,7 @@
 #include <map>
 #include <iostream>
 #include <string>
+#include <functional>
 #define _USE_MATH_DEFINES // for C++
 #include <math.h>
 using namespace std;

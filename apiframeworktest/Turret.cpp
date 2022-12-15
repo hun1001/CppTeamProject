@@ -30,6 +30,7 @@ Turret::Turret()
 	for(size_t i=0;i<pAnim->GetMaxFrame();i++)
 		pAnim->GetFrame(i).vOffset = Vec2(10.f, -50.f);
 }
+
 Turret::~Turret()
 {
 	//if(nullptr !=m_pImage)
