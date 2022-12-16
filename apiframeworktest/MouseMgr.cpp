@@ -20,9 +20,16 @@ void MouseMgr::Update()
 	GetCursorPos(&pt);
 	ScreenToClient(Core::GetInst()->GetWndHandle(), &pt);
 	m_mousePos = pt;
+
+	m_bLBtnDown = GetAsyncKeyState(VK_LBUTTON) & 0x8000;
 }
 
 const Vec2 MouseMgr::GetMousePos()
 {
 	return m_mousePos;
+}
+
+const bool MouseMgr::GetMouseLBtnDown()
+{
+	return m_bLBtnDown;
 }

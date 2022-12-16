@@ -15,7 +15,9 @@ public:
 	
 public:
 	const Vec2 GetMousePos();
+	const bool GetMouseLBtnDown();
 
 private:
 	Vec2 m_mousePos;
+	bool m_bLBtnDown;
 };

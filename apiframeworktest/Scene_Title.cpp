@@ -10,6 +10,7 @@
 #include "KeyMgr.h"
 #include "SceneMgr.h"
 #include "SoundMgr.h"
+#include "Button.h"
 
 Scene_Title::Scene_Title()
 {
@@ -18,9 +19,13 @@ Scene_Title::Scene_Title()
 Scene_Title::~Scene_Title()
 {
 }
+
 void Scene_Title::Enter()
 {
+	Button* startButton = new Button(Vec2(100, 100), Vec2(100, 100), L"Start");
+	startButton->SetOnButtonClicked([]() { TextOut(Core::GetInst()->GetMainDC(), 0, 0, L"Start", 5); });
 	
+	AddObject(startButton, GROUP_TYPE::UI);
 }
 
 void Scene_Title::Exit()
