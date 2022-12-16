@@ -66,11 +66,40 @@ void Object::FinalUpdate()
 
 void Object::Render(HDC _dc)
 {
-	Rectangle(_dc,
+	HDC hMemDC = CreateCompatibleDC(_dc);
+	
+	Rectangle(hMemDC,
 		 (int)(m_vPos.x - m_vScale.x / 2.f)
 		,(int)(m_vPos.y - m_vScale.y / 2.f)
 		,(int)(m_vPos.x + m_vScale.y / 2.f)
 		,(int)(m_vPos.y + m_vScale.y / 2.f));
+
+	POINT pt[3];
+	pt[0].x = (int)(m_vPos.x - m_vScale.x / 2.f);
+	pt[0].y = (int)(m_vPos.y - m_vScale.y / 2.f);
+	
+	pt[1].x = (int)(m_vPos.x + m_vScale.y / 2.f);
+	pt[1].y = (int)(m_vPos.y - m_vScale.y / 2.f);
+	
+	pt[2].x = (int)(m_vPos.x + m_vScale.y / 2.f);
+	pt[2].y = (int)(m_vPos.y + m_vScale.y / 2.f);
+
+	float radian = m_vRotation * PI / 180.f;
+
+	float sin = sinf(radian);
+	float cos = cosf(radian);
+
+	for (int i = 0; i < 3; ++i)
+	{
+		float x = pt[i].x - m_vPos.x;
+		float y = pt[i].y - m_vPos.y;
+
+		pt[i].x = (int)(x * cos - y * sin + m_vPos.x);
+		pt[i].y = (int)(x * sin + y * cos + m_vPos.y);
+	}
+	
+	PlgBlt(_dc, pt, hMemDC, 0, 0, (int)m_vScale.x, (int)m_vScale.y, NULL, 0, 0);
+	
 	Component_Render(_dc);
 }
 

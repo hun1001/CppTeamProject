@@ -23,7 +23,7 @@ Scene_Title::~Scene_Title()
 void Scene_Title::Enter()
 {
 	Button* startButton = new Button(Vec2(100, 100), Vec2(100, 100), L"Start");
-	startButton->SetOnButtonClicked([]() { TextOut(Core::GetInst()->GetMainDC(), 0, 0, L"Start", 5); });
+	startButton->SetOnButtonClicked([startButton]() { exit(0); });
 	
 	AddObject(startButton, GROUP_TYPE::UI);
 }
