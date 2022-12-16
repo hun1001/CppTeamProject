@@ -6,7 +6,7 @@ BWindow::BWindow() : m_hWnd(0), m_hInstance(0)
 {
 }
 
-BWindow::~BWindow()
+BWindow::~BWindow() 
 {
 }
 
