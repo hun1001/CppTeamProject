@@ -1,6 +1,6 @@
 #pragma once
 #include "Object.h"
-class Monster :
+class Enemy :
     public Object
 {
 private:
@@ -18,9 +18,9 @@ public:
     virtual void Update() override;
     virtual void	EnterCollision(Collider* _pOther);
 //    Monster* Clone() { return new Monster(*this); }
-    CLONE(Monster);
+    CLONE(Enemy);
 public:
-    Monster();
-    ~Monster();
+    Enemy();
+    ~Enemy();
 };
 

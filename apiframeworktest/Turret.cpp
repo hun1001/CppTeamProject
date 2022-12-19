@@ -74,7 +74,7 @@ void Turret::CreateBullet()
 	pBullet->SetPos(vBulletPos);
 	pBullet->SetScale(Vec2(25.f, 25.f));
 	pBullet->SetDir(Vec2(0.f, -1.f));
-	CreateObject(pBullet, GROUP_TYPE::BULLET_PLAYER);
+	CreateObject(pBullet, GROUP_TYPE::MISSILE_PLAYER);
 	//Scene* pCurScene = SceneMgr::GetInst()->GetCurScene();
 	//pCurScene->AddObject(pBullet,GROUP_TYPE::BULLET);
 }

@@ -1,8 +1,8 @@
 #include "pch.h"
-#include "Monster.h"
+#include "Enemy.h"
 #include "TimeMgr.h"
 #include "Collider.h"
-Monster::Monster()
+Enemy::Enemy()
 	: m_fSpeed(100.f)
 	, m_fMaxDistance(50.f)
 	, m_vCenterPos(Vec2(0.f,0.f))
@@ -13,11 +13,11 @@ Monster::Monster()
 	GetCollider()->SetScale(Vec2(40.f, 40.f));
 }
 
-Monster::~Monster()
+Enemy::~Enemy()
 {
 }
 
-void Monster::Update()
+void Enemy::Update()
 {
 	Vec2 vCurPos = GetPos();
 	// 진행방향으로 시간당 m_fSpeed만큼 이동
@@ -38,7 +38,7 @@ void Monster::Update()
 	SetPos(vCurPos);
 }
 
-void Monster::EnterCollision(Collider* _pOther)
+void Enemy::EnterCollision(Collider* _pOther)
 {
 	Object* pOtherObj = _pOther->GetObj();
 	if (pOtherObj->GetName() == L"Bullet_Player")

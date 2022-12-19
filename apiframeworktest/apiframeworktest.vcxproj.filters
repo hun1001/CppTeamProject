@@ -83,14 +83,14 @@
     <Filter Include="Engine\04. Object\GameObject\Turret">
       <UniqueIdentifier>{49afdb6e-7b7a-4275-aa72-b49b4860c87a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\04. Object\GameObject\Monster">
-      <UniqueIdentifier>{e686519b-9a51-4335-8ed1-4bf722bfbc75}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Engine\04. Object\GameObject\Bullet">
-      <UniqueIdentifier>{847f42a6-7d6d-4e74-8f48-ade7a3898880}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Engine\03. Manager\MouseMgr">
       <UniqueIdentifier>{09e1ed6b-eb7d-45bf-98cb-157b5715d8b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\04. Object\GameObject\Missile">
+      <UniqueIdentifier>{847f42a6-7d6d-4e74-8f48-ade7a3898880}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\04. Object\GameObject\Enemy">
+      <UniqueIdentifier>{e686519b-9a51-4335-8ed1-4bf722bfbc75}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -139,11 +139,11 @@
     <ClInclude Include="Turret.h">
       <Filter>Engine\04. Object\GameObject\Turret</Filter>
     </ClInclude>
-    <ClInclude Include="Monster.h">
-      <Filter>Engine\04. Object\GameObject\Monster</Filter>
+    <ClInclude Include="Enemy.h">
+      <Filter>Engine\04. Object\GameObject\Enemy</Filter>
     </ClInclude>
     <ClInclude Include="Missile.h">
-      <Filter>Engine\04. Object\GameObject\Bullet</Filter>
+      <Filter>Engine\04. Object\GameObject\Missile</Filter>
     </ClInclude>
     <ClInclude Include="Res.h">
       <Filter>Engine\06. Resource</Filter>
@@ -242,11 +242,11 @@
     <ClCompile Include="Turret.cpp">
       <Filter>Engine\04. Object\GameObject\Turret</Filter>
     </ClCompile>
-    <ClCompile Include="Monster.cpp">
-      <Filter>Engine\04. Object\GameObject\Monster</Filter>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Engine\04. Object\GameObject\Enemy</Filter>
     </ClCompile>
     <ClCompile Include="Missile.cpp">
-      <Filter>Engine\04. Object\GameObject\Bullet</Filter>
+      <Filter>Engine\04. Object\GameObject\Missile</Filter>
     </ClCompile>
     <ClCompile Include="Res.cpp">
       <Filter>Engine\06. Resource</Filter>

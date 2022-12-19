@@ -2,7 +2,7 @@
 #include "Scene_Title.h"
 #include "Object.h"
 #include "Turret.h"
-#include "Monster.h"
+#include "Enemy.h"
 #include "Core.h"
 #include "Image.h"
 #include "PathMgr.h"
@@ -22,10 +22,17 @@ Scene_Title::~Scene_Title()
 
 void Scene_Title::Enter()
 {
-	Button* startButton = new Button(Vec2(100, 100), Vec2(100, 100), L"Start");
-	startButton->SetOnButtonClicked([startButton]() { exit(0); });
-	
+#pragma region StartButton
+	Button* startButton = new Button(Vec2(200, 100), Vec2(300, 100), L"Start");
+	startButton->SetOnButtonClicked([]() { ChangeScene(SCENE_TYPE::GAME); });
 	AddObject(startButton, GROUP_TYPE::UI);
+#pragma endregion
+
+#pragma region ExitButton
+	Button* exitButton = new Button(Vec2(200, 300), Vec2(300, 100), L"Exit");
+	exitButton->SetOnButtonClicked([]() { PostQuitMessage(0); });
+	AddObject(exitButton, GROUP_TYPE::UI);
+#pragma endregion
 }
 
 void Scene_Title::Exit()
