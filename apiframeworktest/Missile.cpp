@@ -10,7 +10,7 @@ Missile::Missile() : m_fTheta(3.f * M_PI/2.f), m_vDir(Vec2(1.f,1.f))
 {
 
 	//enter key spade create Missile 
-	m_pImage = ResMgr::GetInst()->ImgLoad(L"Missile", L"Image\\Missile.bmp");
+	m_pImage = ResMgr::GetInst()->ImgLoad(L"Missile", L"Image\\Missile_Right.bmp");
 	m_vDir.Normalize();
 	CreateCollider();
 	GetCollider()->SetScale(Vec2(15.f, 15.f));
