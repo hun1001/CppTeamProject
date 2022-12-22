@@ -14,21 +14,35 @@
 Turret::Turret()
 {
 	// collider 새성
-	CreateCollider();
-	GetCollider()->SetScale(Vec2(20.f, 30.f));
+	/*CreateCollider();
+	GetCollider()->SetScale(Vec2(20.f, 30.f));*/
 
 	// image 업로드
-	Image* pImg = ResMgr::GetInst()->ImgLoad(L"PlayerAni", L"Image\\jiwoo.bmp");
+<<<<<<< Updated upstream
+	m_pImage = ResMgr::GetInst()->ImgLoad(L"PlayerAni", L"Image\\Turret.bmp");
+
+	 //animator 생성 및 animation 사용
+		//CreateAnimator();
+		//GetAnimator()->CreateAnimation(L"Jiwoofront", pImg, Vec2(0.f, 150.f), Vec2(50.f, 50.f), Vec2(50.f, 0.f), 5, 0.2f);
+		//GetAnimator()->Play(L"Jiwoofront", true);
+
+		//// animation offset 위로 올리기. 
+		//Animation* pAnim = GetAnimator()->FindAnimation(L"Jiwoofront");
+		//for(size_t i=0;i<pAnim->GetMaxFrame();i++)
+		//	pAnim->GetFrame(i).vOffset = Vec2(10.f, -50.f);
+=======
+	m_pImage = ResMgr::GetInst()->ImgLoad(L"Player", L"Image\\Turretb.bmp");
 
 	// animator 생성 및 animation 사용
-	CreateAnimator();
-	GetAnimator()->CreateAnimation(L"Jiwoofront", pImg, Vec2(0.f, 150.f), Vec2(50.f, 50.f), Vec2(50.f, 0.f), 5, 0.2f);
-	GetAnimator()->Play(L"Jiwoofront", true);
+	//CreateAnimator();
+	//GetAnimator()->CreateAnimation(L"Jiwoofront", pImg, Vec2(0.f, 150.f), Vec2(50.f, 50.f), Vec2(50.f, 0.f), 5, 0.2f);
+	//GetAnimator()->Play(L"Jiwoofront", true);
 
-	// animation offset 위로 올리기. 
-	Animation* pAnim = GetAnimator()->FindAnimation(L"Jiwoofront");
-	for(size_t i=0;i<pAnim->GetMaxFrame();i++)
-		pAnim->GetFrame(i).vOffset = Vec2(10.f, -50.f);
+	//// animation offset 위로 올리기. 
+	//Animation* pAnim = GetAnimator()->FindAnimation(L"Jiwoofront");
+	//for(size_t i=0;i<pAnim->GetMaxFrame();i++)
+	//	pAnim->GetFrame(i).vOffset = Vec2(10.f, -50.f);
+>>>>>>> Stashed changes
 }
 
 Turret::~Turret()
@@ -47,20 +61,20 @@ void Turret::Update()
 	{
 		vPos.y += 300.f * fDT;
 	}
-	if (KEY_HOLD(KEY::LEFT))
+	/*if (KEY_HOLD(KEY::LEFT))
 	{
 		vPos.x -= 300.f * fDT;
 	}
 	if (KEY_HOLD(KEY::RIGHT))
 	{
 		vPos.x += 300.f * fDT;
-	}
+	}*/
 	if (KEY_TAP(KEY::SPACE))
 	{
 		CreateBullet();
 	}
 	SetPos(vPos);
-	GetAnimator()->Update();
+	//GetAnimator()->Update();
 }
 
 void Turret::CreateBullet()
@@ -81,11 +95,26 @@ void Turret::CreateBullet()
 
 void Turret::Render(HDC _dc)
 {
+<<<<<<< Updated upstream
+	//Component_Render(_dc);
+=======
 	Component_Render(_dc);
-	/*int Width = (int)m_pImage->GetWidth();
+>>>>>>> Stashed changes
+	int Width = (int)m_pImage->GetWidth();
 	int Height = (int)m_pImage->GetHeight();
 
-	Vec2 vPos = GetPos();*/
+	Vec2 vPos = GetPos();
+<<<<<<< Updated upstream
+	/*BitBlt(_dc
+		,(int)(vPos.x - (float)(Width / 2))
+		,(int)(vPos.y - (float)(Height / 2))
+	    , Width, Height
+	    , m_pImage->GetDC()
+	    , 0,0, SRCCOPY);
+
+	마젠타 색상 뺄때 transparent: 투명한
+	*/TransparentBlt(_dc
+=======
 	//BitBlt(_dc
 	//	,(int)(vPos.x - (float)(Width / 2))
 	//	,(int)(vPos.y - (float)(Height / 2))
@@ -94,12 +123,13 @@ void Turret::Render(HDC _dc)
 	//    , 0,0, SRCCOPY);
 
 	//마젠타 색상 뺄때 transparent: 투명한
-	//TransparentBlt(_dc
-	//	, (int)(vPos.x - (float)(Width / 2))
-	//	, (int)(vPos.y - (float)(Height / 2))
-	//	,Width, Height
-	//    , m_pImage->GetDC()
-	//    ,0,0, Width, Height
-	//    , RGB(255,0,255));
+	TransparentBlt(_dc
+>>>>>>> Stashed changes
+		, (int)(vPos.x - (float)(Width / 2))
+		, (int)(vPos.y - (float)(Height / 2))
+		,Width, Height
+	    , m_pImage->GetDC()
+	    ,0,0, Width, Height
+	    , RGB(255,0,255));
 
 }
