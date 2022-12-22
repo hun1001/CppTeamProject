@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "KeyMgr.h"
 #include "Core.h"
+
 int g_arrVK[(int)KEY::LAST] =
 {
 	VK_LEFT,
@@ -29,6 +30,7 @@ int g_arrVK[(int)KEY::LAST] =
 	'B',
 	VK_MENU, VK_LSHIFT, VK_CONTROL, VK_SPACE, VK_RETURN, VK_ESCAPE,
 };
+
 KeyMgr::KeyMgr()
 {
 }

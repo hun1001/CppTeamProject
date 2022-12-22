@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "MouseMgr.h"
+#include "KeyMgr.h"
 #include "Core.h"
 
 MouseMgr::MouseMgr() : m_mousePos()
@@ -21,7 +22,7 @@ void MouseMgr::Update()
 	ScreenToClient(Core::GetInst()->GetWndHandle(), &pt);
 	m_mousePos = pt;
 
-	m_bLBtnDown = GetAsyncKeyState(VK_LBUTTON) & 0x8000;
+	m_bLBtnDown = KEY_TAP(KEY::LBTN);
 }
 
 const Vec2 MouseMgr::GetMousePos()
