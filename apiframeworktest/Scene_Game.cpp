@@ -14,6 +14,10 @@ Scene_Game::~Scene_Game()
 
 void Scene_Game::Enter()
 {
+#pragma region Enemy_Missile_Launcher
+
+#pragma endregion
+
 }
 
 void Scene_Game::Exit()

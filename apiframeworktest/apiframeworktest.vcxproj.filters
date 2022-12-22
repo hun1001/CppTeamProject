@@ -199,6 +199,9 @@
     <ClInclude Include="MouseMgr.h">
       <Filter>Engine\03. Manager\MouseMgr</Filter>
     </ClInclude>
+    <ClInclude Include="MissileLauncher.h">
+      <Filter>Engine\04. Object\GameObject\Missilelauncher</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="apiframeworktest.rc">
@@ -298,6 +301,9 @@
     </ClCompile>
     <ClCompile Include="MouseMgr.cpp">
       <Filter>Engine\03. Manager\MouseMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="MissileLauncher.cpp">
+      <Filter>Engine\04. Object\GameObject\Missilelauncher</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
