@@ -3,13 +3,14 @@
 
 class MissileLauncher : public Object
 {
+private:
+	vector<class Missile*> m_vMissiles;
+	
 public:
 	MissileLauncher();
 	virtual ~MissileLauncher();
 
 	virtual void Update() override;
-	virtual void Render(HDC _dc) override;
-	virtual void EnterCollision(Collider* _pOther) override;
 
 	CLONE(MissileLauncher);
 };

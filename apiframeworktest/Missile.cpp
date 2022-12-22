@@ -6,38 +6,62 @@
 #include "ResMgr.h"
 #include "Collider.h"
 
-Missile::Missile() : m_fTheta(3.f * M_PI/2.f), m_vDir(Vec2(1.f,1.f))
+Missile::Missile() : m_vDir({ 1, 0 }), m_pImage(nullptr), m_fSpeed(10), m_targetTag(L"Enemy")
 {
-	m_pImage = ResMgr::GetInst()->ImgLoad(L"Missile", L"Image\\Missile.bmp");
+	if(m_vDir.x >= 0)
+		m_pImage = ResMgr::GetInst()->ImgLoad(L"MissileImg_Right", L"Image\\Missile_Right.bmp");
+	else
+		m_pImage = ResMgr::GetInst()->ImgLoad(L"MissileImg_Left", L"Image\\Missile_Left.bmp");
+	
 	m_vDir.Normalize();
 	CreateCollider();
 	GetCollider()->SetScale(Vec2(15.f, 15.f));
+}
+
+Missile::Missile(Vec2 _vPos, Vec2 _vDir) : m_vDir(_vDir), m_pImage(nullptr), m_fSpeed(10), m_targetTag(L"Enemy")
+{
+	if (m_vDir.x >= 0)
+		m_pImage = ResMgr::GetInst()->ImgLoad(L"MissileImg_Right", L"Image\\Missile_Right.bmp");
+	else
+		m_pImage = ResMgr::GetInst()->ImgLoad(L"MissileImg_Left", L"Image\\Missile_Left.bmp");
+	
+	m_vDir.Normalize();
+	CreateCollider();
+	GetCollider()->SetScale(Vec2(15.f, 15.f));
+	Object::SetPos(_vPos);
+}
+
+Missile::Missile(Vec2 _vPos, Vec2 _vDir, float _fSpeed, wstring _targetTag) : m_vDir(_vDir), m_pImage(nullptr), m_fSpeed(_fSpeed), m_targetTag(_targetTag)
+{
+	if (m_vDir.x >= 0)
+		m_pImage = ResMgr::GetInst()->ImgLoad(L"MissileImg_Right", L"Image\\Missile_Right.bmp");
+	else
+		m_pImage = ResMgr::GetInst()->ImgLoad(L"MissileImg_Left", L"Image\\Missile_Left.bmp");
+	
+	m_vDir.Normalize();
+	CreateCollider();
+	GetCollider()->SetScale(Vec2(150.f, 50.f));
+	SetPos(_vPos);
 }
 
 Missile::~Missile()
 {
 }
 
-
 void Missile::Update()
 {
- 	
+	Vec2 vPos = GetPos();
+	vPos += m_vDir * m_fSpeed;
+	SetPos(vPos);
 }
 
 void Missile::Render(HDC _dc)
 {
-	//Vec2 vPos = GetPos();
-	//Vec2 vScale = GetScale();
-	//Ellipse(_dc,
-	//	  (int)(vPos.x - vScale.x / 2.f)
-	//	, (int)(vPos.y - vScale.y / 2.f)
-	//	, (int)(vPos.x + vScale.y / 2.f)
-	//	, (int)(vPos.y + vScale.y / 2.f));
 	int Width = (int)m_pImage->GetWidth();
 	int Height = (int)m_pImage->GetHeight();
 
 	Vec2 vPos = GetPos();
-	//¸¶Á¨Å¸ »ö»ó »¬¶§ transparent: Åõ¸íÇÑ
+	
 	TransparentBlt(_dc
 		, (int)(vPos.x - (float)(Width / 2))
 		, (int)(vPos.y - (float)(Height / 2))
@@ -45,13 +69,14 @@ void Missile::Render(HDC _dc)
 		, m_pImage->GetDC()
 		, 0, 0, Width, Height
 		, RGB(255, 0, 255));
+	
 	Component_Render(_dc);
 }
 
 void Missile::EnterCollision(Collider* _pOther)
 {
 	Object* pOtherObj = _pOther->GetObj();
-	if (pOtherObj->GetName() == L"ENEMY")
+	if (pOtherObj->GetName() == m_targetTag.c_str())
 	{
 		DeleteObject(this);
 	}

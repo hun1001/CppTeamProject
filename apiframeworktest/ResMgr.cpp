@@ -8,11 +8,6 @@ ResMgr::ResMgr()
 
 ResMgr::~ResMgr()
 {
-	/*map<wstring, Image*>::iterator iter;
-	for (iter = m_mapImg.begin(); iter != m_mapImg.end(); ++iter)
-	{
-		delete iter->second;
-	}*/
 	Safe_Delete_Map(m_mapImg);
 }
 
@@ -30,7 +25,7 @@ Image* ResMgr::ImgLoad(const wstring& _strKey, const wstring& _strRelativePath)
 	pImg->SetKey(_strKey);
 	pImg->SetRelativePath(_strRelativePath);
 	m_mapImg.insert(make_pair(_strKey , pImg));
-//	m_mapImg.insert({ _strKey , pImg });
+	
 	return pImg;
 }
 

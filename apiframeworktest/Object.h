@@ -4,11 +4,9 @@ class Animator;
 class Object
 {
 private:
-	//POINT m_ptPos;
-	//POINT m_ptScale;
 	Vec2 m_vPos;
 	Vec2 m_vScale;
-	float m_vRotation;
+	float m_fRotation;
 	
 	Collider* m_pCollider;
 	Animator* m_pAnimator;
@@ -17,9 +15,10 @@ private:
 public:
 	void SetPos(Vec2 _vPos) { m_vPos = _vPos; }
 	void SetScale(Vec2 _vScale) { m_vScale = _vScale; }
-	void SetRotation(float _fRotation) { m_vRotation = _fRotation; }
+	void SetRotation(float _fRotation) { m_fRotation = _fRotation; }
 	const Vec2& GetPos() { return m_vPos; }
 	const Vec2& GetScale() { return m_vScale; }
+	const float& GetRotation() { return m_fRotation; }
 	Collider* GetCollider() { return m_pCollider; }
 	Animator* GetAnimator() { return m_pAnimator; }
 	void	CreateCollider();
@@ -37,7 +36,6 @@ public:
 	virtual void	StayCollision(Collider* _pOther) {}
 	virtual void	EnterCollision(Collider* _pOther) {}
 	virtual void	ExitCollision(Collider* _pOther) {}
-
 
 	void	Component_Render(HDC _dc);
 

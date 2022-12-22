@@ -12,6 +12,8 @@
 #include "SoundMgr.h"
 #include "Button.h"
 
+#include "Missile.h"
+
 Scene_Title::Scene_Title()
 {
 }
@@ -22,6 +24,12 @@ Scene_Title::~Scene_Title()
 
 void Scene_Title::Enter()
 {
+#pragma region TestObject
+	Missile* missile = new Missile(Vec2(500, 200), Vec2(1, 0), 1, L"Enemy");
+	missile->SetRotation(90.f);
+	AddObject(missile, GROUP_TYPE::MISSILE_PLAYER);
+#pragma endregion
+	
 #pragma region StartButton
 	Button* startButton = new Button(Vec2(200, 100), Vec2(300, 100), L"Start");
 	startButton->SetOnButtonClicked([]() { ChangeScene(SCENE_TYPE::GAME); });
@@ -30,7 +38,7 @@ void Scene_Title::Enter()
 
 #pragma region ExitButton
 	Button* exitButton = new Button(Vec2(200, 300), Vec2(300, 100), L"Exit");
-	exitButton->SetOnButtonClicked([]() { PostQuitMessage(0); });
+	exitButton->SetOnButtonClicked([missile]() { PostQuitMessage(0); });
 	AddObject(exitButton, GROUP_TYPE::UI);
 #pragma endregion
 }
