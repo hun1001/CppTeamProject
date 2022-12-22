@@ -92,6 +92,9 @@
     <Filter Include="Engine\04. Object\GameObject\Enemy">
       <UniqueIdentifier>{e686519b-9a51-4335-8ed1-4bf722bfbc75}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\04. Object\GameObject\Missilelauncher">
+      <UniqueIdentifier>{8d6099fc-b131-4423-9268-a570a49962de}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.h">
