@@ -174,7 +174,6 @@
     <ClInclude Include="Image.h" />
     <ClInclude Include="KeyMgr.h" />
     <ClInclude Include="Enemy.h" />
-    <ClInclude Include="MissileLauncher.h" />
     <ClInclude Include="MouseMgr.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="PathMgr.h" />
@@ -214,7 +213,6 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Enemy.cpp" />
-    <ClCompile Include="MissileLauncher.cpp" />
     <ClCompile Include="MouseMgr.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="PathMgr.cpp" />

@@ -4,6 +4,8 @@
 #include "Object.h"
 #include "Turret.h"
 #include "Core.h"
+#include "MouseMgr.h"
+#include "Missile.h"
 
 Scene_Game::Scene_Game()
 {
@@ -31,4 +33,10 @@ void Scene_Game::Exit()
 void Scene_Game::Update()
 {
 	Scene::Update();
+	if (MouseMgr::GetInst()->GetMouseLBtnDown())
+	{
+		Vec2 vPos = MouseMgr::GetInst()->GetMousePos();
+	
+		
+	}
 }
