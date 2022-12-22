@@ -24,6 +24,11 @@ Scene_Title::~Scene_Title()
 
 void Scene_Title::Enter()
 {
+#pragma region BGM
+	SoundMgr::GetInst()->LoadSound(L"Title_BGM", true, L"Sound\\Title_BGM.mp3");
+	SoundMgr::GetInst()->Play(L"Title_BGM");
+#pragma endregion
+	
 #pragma region StartButton
 	Button* startButton = new Button(Vec2(200, 100), Vec2(300, 100), L"Start");
 	startButton->SetOnButtonClicked([]() { ChangeScene(SCENE_TYPE::GAME); });
@@ -39,6 +44,7 @@ void Scene_Title::Enter()
 
 void Scene_Title::Exit()
 {
+	SoundMgr::GetInst()->Stop(SOUND_CHANNEL::SC_BGM);
 	DeleteAll();
 	CollisionMgr::GetInst()->CheckReset();
 }
