@@ -19,13 +19,14 @@ Turret::Turret()
 
 	// image 업로드
 	m_pImage = ResMgr::GetInst()->ImgLoad(L"Player", L"Image\\Turretc.bmp");
+	
 
-	// animator 생성 및 animation 사용
+	 //animator 생성 및 animation 사용
 	//CreateAnimator();
 	//GetAnimator()->CreateAnimation(L"Jiwoofront", pImg, Vec2(0.f, 150.f), Vec2(50.f, 50.f), Vec2(50.f, 0.f), 5, 0.2f);
 	//GetAnimator()->Play(L"Jiwoofront", true);
 
-	// animation offset 위로 올리기. 
+	 //animation offset 위로 올리기. 
 	/*Animation* pAnim = GetAnimator()->FindAnimation(L"Jiwoofront");
 	for(size_t i=0;i<pAnim->GetMaxFrame();i++)
 		pAnim->GetFrame(i).vOffset = Vec2(10.f, -50.f);*/
@@ -40,11 +41,11 @@ Turret::~Turret()
 void Turret::Update()
 {
 	Vec2 vPos = GetPos();
-	if(KEY_HOLD(KEY::UP))
+	if(KEY_HOLD(KEY::W))
 	{
 		vPos.y -= 300.f * fDT;
 	}
-	if (KEY_HOLD(KEY::DOWN))
+	if (KEY_HOLD(KEY::S))
 	{
 		vPos.y += 300.f * fDT;
 	}

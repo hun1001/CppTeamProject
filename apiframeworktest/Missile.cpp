@@ -5,6 +5,8 @@
 #include "PathMgr.h"
 #include "ResMgr.h"
 #include "Collider.h"
+#include "Animation.h"
+#include "Animator.h"
 
 Missile::Missile() : m_vDir({ 1, 0 }), m_pImage(nullptr), m_fSpeed(10), m_targetTag(L"Enemy")
 {
@@ -16,6 +18,8 @@ Missile::Missile() : m_vDir({ 1, 0 }), m_pImage(nullptr), m_fSpeed(10), m_target
 	m_vDir.Normalize();
 	CreateCollider();
 	GetCollider()->SetScale(Vec2(15.f, 15.f));
+	
+
 }
 
 Missile::Missile(Vec2 _vPos, Vec2 _vDir) : m_vDir(_vDir), m_pImage(nullptr), m_fSpeed(10), m_targetTag(L"Enemy")
@@ -42,12 +46,21 @@ Missile::Missile(Vec2 _vPos, Vec2 _vDir, float _fSpeed, wstring _targetTag) : m_
 	CreateCollider();
 	GetCollider()->SetScale(Vec2(150.f, 50.f));
 	SetPos(_vPos);
+
 }
 
 Missile::~Missile()
 {
+	
 }
 
+void Missile::BombMissile()
+{
+	Image* bombImg = ResMgr::GetInst()->ImgLoad(L"MissileAni", L"Image\\Explosion.bmp");
+	CreateAnimator();
+	GetAnimator()->CreateAnimation(L"Explosion", bombImg, Vec2(0.f, 150.f), Vec2(50.f, 50.f), Vec2(50.f, 0.f), 5, 0.2f);
+	GetAnimator()->Play(L"Explosion", false);
+}
 void Missile::Update()
 {
 	Vec2 vPos = GetPos();
@@ -79,5 +92,6 @@ void Missile::EnterCollision(Collider* _pOther)
 	if (pOtherObj->GetName() == m_targetTag.c_str())
 	{
 		DeleteObject(this);
+		BombMissile();
 	}
 }

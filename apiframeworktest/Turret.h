@@ -7,6 +7,7 @@ class Turret :
 {
 private:
     Image* m_pImage;
+
 public:
     Turret();
     //Player(const Player& _origin) 
