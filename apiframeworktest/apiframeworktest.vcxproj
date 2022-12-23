@@ -156,6 +156,7 @@
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Animator.h" />
     <ClInclude Include="apiframeworktest.h" />
+    <ClInclude Include="Building.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="Missile.h" />
     <ClInclude Include="BWindow.h">
@@ -178,7 +179,6 @@
     <ClInclude Include="Object.h" />
     <ClInclude Include="PathMgr.h" />
     <ClInclude Include="pch.h" />
-    <ClInclude Include="PlayerMgr.h" />
     <ClInclude Include="Slider.h" />
     <ClInclude Include="Turret.h" />
     <ClInclude Include="Res.h" />
@@ -198,6 +198,7 @@
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Animator.cpp" />
+    <ClCompile Include="Building.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Missile.cpp" />
     <ClCompile Include="Collider.cpp" />
@@ -218,7 +219,6 @@
     <ClCompile Include="MouseMgr.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="PathMgr.cpp" />
-    <ClCompile Include="PlayerMgr.cpp" />
     <ClCompile Include="Slider.cpp" />
     <ClCompile Include="Turret.cpp" />
     <ClCompile Include="Res.cpp" />

@@ -6,7 +6,9 @@
 #include "Core.h"
 #include "MouseMgr.h"
 #include "Missile.h"
+#include "Enemy.h"
 #include "TimeMgr.h"
+#include "Building.h"
 
 Scene_Game::Scene_Game()
 {
@@ -18,13 +20,20 @@ Scene_Game::~Scene_Game()
 
 void Scene_Game::Enter()
 {
+#pragma region Building
+	Building* pBuilding = new Building({ 100l, Core::GetInst()->GetInst()->GetResolution().y / 2 }, { 500l, Core::GetInst()->GetInst()->GetResolution().y }, 100);
+	AddObject(pBuilding, GROUP_TYPE::PLAYER);
+#pragma endregion
+
+#pragma region Enemy
+	Enemy* pEnemy = new Enemy();
+	AddObject(pEnemy, GROUP_TYPE::DEFAULT);
+#pragma endregion
+
 	Object* pObj = new Turret;
-	pObj->SetPos(Vec2(100l, Core::GetInst()->GetResolution().y / 2));
+	pObj->SetPos(Vec2(200l, Core::GetInst()->GetResolution().y / 2));
 	pObj->SetScale(Vec2(100.f, 100.f));
 	AddObject(pObj, GROUP_TYPE::PLAYER);
-#pragma region Enemy_Missile_Launcher
-
-#pragma endregion
 }
 
 void Scene_Game::Exit()
@@ -47,6 +56,13 @@ void Scene_Game::Update()
 
 		AddObject(pMissile, GROUP_TYPE::MISSILE_PLAYER);
 		cooltime = 1.f;
+	}
+
+	Enemy* pEnemy = (Enemy*)GetGroupObject(GROUP_TYPE::DEFAULT)[0];
+
+	if (pEnemy->GetFire())
+	{
+		AddObject(pEnemy->MissileFire(), GROUP_TYPE::MISSILE_ENEMY);
 	}
 
 	cooltime -= TimeMgr::GetInst()->GetfDT();

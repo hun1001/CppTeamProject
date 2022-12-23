@@ -92,11 +92,17 @@
     <Filter Include="Engine\04. Object\GameObject\Enemy">
       <UniqueIdentifier>{e686519b-9a51-4335-8ed1-4bf722bfbc75}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\04. Object\GameObject\Missilelauncher">
-      <UniqueIdentifier>{8d6099fc-b131-4423-9268-a570a49962de}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Engine\04. Object\GameObject\CoolTime">
       <UniqueIdentifier>{920d48e8-2c68-42ed-a179-aee427e45d5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\04. Object\UI\Button">
+      <UniqueIdentifier>{606fe6d6-1f42-4f77-94a4-023f2437ad1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\04. Object\UI\Slider">
+      <UniqueIdentifier>{5a2bf7af-094d-43fe-9845-90c17dfa32c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\04. Object\GameObject\Building">
+      <UniqueIdentifier>{2401d41d-c68e-4326-b3e6-4f1455676a13}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -196,11 +202,17 @@
     <ClInclude Include="SoundMgr.h">
       <Filter>Engine\03. Manager\SoundMgr</Filter>
     </ClInclude>
-    <ClInclude Include="Button.h">
-      <Filter>Engine\04. Object\UI</Filter>
-    </ClInclude>
     <ClInclude Include="MouseMgr.h">
       <Filter>Engine\03. Manager\MouseMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Engine\04. Object\UI\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="Slider.h">
+      <Filter>Engine\04. Object\UI\Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="Building.h">
+      <Filter>Engine\04. Object\GameObject\Building</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -296,11 +308,17 @@
     <ClCompile Include="SoundMgr.cpp">
       <Filter>Engine\03. Manager\SoundMgr</Filter>
     </ClCompile>
-    <ClCompile Include="Button.cpp">
-      <Filter>Engine\04. Object\UI</Filter>
-    </ClCompile>
     <ClCompile Include="MouseMgr.cpp">
       <Filter>Engine\03. Manager\MouseMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Engine\04. Object\UI\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="Slider.cpp">
+      <Filter>Engine\04. Object\UI\Slider</Filter>
+    </ClCompile>
+    <ClCompile Include="Building.cpp">
+      <Filter>Engine\04. Object\GameObject\Building</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
