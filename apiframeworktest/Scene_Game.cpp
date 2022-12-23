@@ -34,7 +34,7 @@ void Scene_Game::Exit()
 void Scene_Game::Update()
 {
 	Scene::Update();
-	static float cooltime = 0.f;
+	static float cooltime = 1.f;
 	if (MouseMgr::GetInst()->GetMouseLBtnDown() && cooltime <= 0.f)
 	{		
 		
