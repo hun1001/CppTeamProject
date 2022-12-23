@@ -3,19 +3,19 @@
 #include "TimeMgr.h"
 #include "Missile.h"
 #include "Core.h"
+#include "RandomMgr.h"
 
 Missile* Enemy::MissileFire()
 {
 	m_cooltime = m_delay;
 	srand((unsigned int)time(NULL));
 	
-	long randomY = rand() % Core::GetInst()->GetResolution().y;
+	Vec2 missilePos = Vec2(Core::GetInst()->GetResolution().x, (long)GetRandom(0, Core::GetInst()->GetResolution().y));
 	
-	Missile* pMissile = new Missile(Vec2(Core::GetInst()->GetResolution().x, randomY), Vec2(-1.f, 0.f), 1.f, L"PLAYER_MISSILE");
+	Missile* pMissile = new Missile(missilePos, Vec2(-1.f, 0.f), 1.f, L"PLAYER_MISSILE");
 	
 	return pMissile;
 }
-
 
 void Enemy::Update()
 {

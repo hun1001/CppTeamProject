@@ -27,3 +27,6 @@ void Safe_Delete_Map(map<T1, T2>& _map)
 	}
 	_map.clear();
 }
+
+int GetRandom(int _iMin, int _iMax);
+float GetRandom(float _fMin, float _fMax);

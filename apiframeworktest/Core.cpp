@@ -9,6 +9,7 @@
 #include "EventMgr.h"
 #include "SoundMgr.h"
 #include "MouseMgr.h"
+#include "RandomMgr.h"
 
 Core::Core()
 	: m_hDC(0)
