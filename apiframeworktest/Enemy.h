@@ -1,26 +1,32 @@
 #pragma once
 #include "Object.h"
+
+class Missile;
+
 class Enemy :
     public Object
 {
 private:
-    float   m_fSpeed;
-    Vec2    m_vCenterPos;
-    float   m_fMaxDistance;
-    int     m_iDir; // 1, -1
-    int     m_iHp;
+	float m_cooltime = 1.f;
+    float m_delay = 5.f;
+	bool m_bFire = false;
+
 public:
-    float GetSpeed() { return m_fSpeed; }
-    void SetSpeed(float _f) { m_fSpeed = _f; }
-    void SetCenterPos(Vec2 _vPos) { m_vCenterPos = _vPos; }
-    void SetMoveDistance(float _f) { m_fMaxDistance = _f; }
+	void SetDelay(float _fDelay) { m_delay = _fDelay; }
+	void SetCooltime(float _fCooltime) { m_cooltime = _fCooltime; }
+    
+	float GetDelay() { return m_delay; }
+	float GetCooltime() { return m_cooltime; }
+    
+public:
+    Missile* MissileFire();
+	bool GetFire() { return m_bFire; }
+   
 public:
     virtual void Update() override;
-    virtual void	EnterCollision(Collider* _pOther);
-//    Monster* Clone() { return new Monster(*this); }
+    
     CLONE(Enemy);
 public:
     Enemy();
     ~Enemy();
 };
-

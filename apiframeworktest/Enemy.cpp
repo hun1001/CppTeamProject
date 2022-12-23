@@ -1,51 +1,32 @@
 #include "pch.h"
 #include "Enemy.h"
 #include "TimeMgr.h"
-#include "Collider.h"
-Enemy::Enemy()
-	: m_fSpeed(100.f)
-	, m_fMaxDistance(50.f)
-	, m_vCenterPos(Vec2(0.f,0.f))
-	, m_iDir(1)
-	, m_iHp(5)
+#include "Missile.h"
+#include "Core.h"
+
+Missile* Enemy::MissileFire()
 {
-	CreateCollider();
-	GetCollider()->SetScale(Vec2(40.f, 40.f));
+	m_cooltime = m_delay;
+	srand((unsigned int)time(NULL));
+	
+	long randomY = rand() % Core::GetInst()->GetResolution().y;
+	
+	Missile* pMissile = new Missile(Vec2(Core::GetInst()->GetResolution().x, randomY), Vec2(-1.f, 0.f), 1.f, L"PLAYER_MISSILE");
+	
+	return pMissile;
+}
+
+
+void Enemy::Update()
+{
+	m_bFire = m_cooltime <= 0.f;
+	m_cooltime -= TimeMgr::GetInst()->GetfDT();
+}
+
+Enemy::Enemy() : m_bFire(false), m_cooltime(1.5f), m_delay(3.f)
+{
 }
 
 Enemy::~Enemy()
 {
 }
-
-void Enemy::Update()
-{
-	Vec2 vCurPos = GetPos();
-	// 진행방향으로 시간당 m_fSpeed만큼 이동
-//	vCurPos.x += m_fSpeed * fDT * m_iDir;
-	vCurPos.x += fDT* m_fSpeed * m_iDir;
-
-	// 배회 거리 기준량을 넘어섰는지 확인
-	//if (m_fMaxDistance < abs(m_vCenterPos.x - vCurPos.x))
-	//{
-
-	//}
-	float fDist = abs(m_vCenterPos.x - vCurPos.x) - m_fMaxDistance;
-	if (fDist > 0.f)
-	{
-		m_iDir *= -1;
-		vCurPos.x += fDist * m_iDir;
-	}
-	SetPos(vCurPos);
-}
-
-void Enemy::EnterCollision(Collider* _pOther)
-{
-	Object* pOtherObj = _pOther->GetObj();
-	if (pOtherObj->GetName() == L"Bullet_Player")
-	{
-		m_iHp -= 1;
-		if(m_iHp <= 0)
-			DeleteObject(this);
-	}
-}
-
