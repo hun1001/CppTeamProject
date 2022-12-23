@@ -56,10 +56,10 @@ void Turret::Update()
 	{
 		vPos.x += 300.f * fDT;
 	}*/
-	if (KEY_TAP(KEY::SPACE))
-	{
-		CreateBullet();
-	}
+	//if (KEY_TAP(KEY::SPACE))
+	//{
+	//	CreateBullet();
+	//}
 	SetPos(vPos);
 	//GetAnimator()->Update();
 }
