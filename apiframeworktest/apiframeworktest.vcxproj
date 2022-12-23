@@ -178,6 +178,7 @@
     <ClInclude Include="Object.h" />
     <ClInclude Include="PathMgr.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Slider.h" />
     <ClInclude Include="Turret.h" />
     <ClInclude Include="Res.h" />
     <ClInclude Include="ResMgr.h" />
@@ -216,6 +217,7 @@
     <ClCompile Include="MouseMgr.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="PathMgr.cpp" />
+    <ClCompile Include="Slider.cpp" />
     <ClCompile Include="Turret.cpp" />
     <ClCompile Include="Res.cpp" />
     <ClCompile Include="ResMgr.cpp" />
