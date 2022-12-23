@@ -21,8 +21,18 @@ public:
 	void Update();
 	void Render(HDC _dc);
 	
-	void Damage(int damage) { m_iHp -= damage; }
+	void Damage(int damage)
+	{
+		m_iHp -= damage;
+		if (m_iHp <= 0)
+		{
+			m_iHp = 0;
+			DeleteObject(this);
+		}
+	}
 	const int& GetHp() const { return m_iHp; }
+
+	void EnterCollision(Collider* _pOther) override;
 
 	CLONE(Building);
 };

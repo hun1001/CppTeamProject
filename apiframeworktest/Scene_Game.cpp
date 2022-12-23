@@ -9,6 +9,7 @@
 #include "Enemy.h"
 #include "TimeMgr.h"
 #include "Building.h"
+#include "CollisionMgr.h"
 
 Scene_Game::Scene_Game()
 {
@@ -21,7 +22,7 @@ Scene_Game::~Scene_Game()
 void Scene_Game::Enter()
 {
 #pragma region Building
-	Building* pBuilding = new Building({ 100l, Core::GetInst()->GetInst()->GetResolution().y / 2 }, { 500l, Core::GetInst()->GetInst()->GetResolution().y }, 100);
+	Building* pBuilding = new Building({ 100l, Core::GetInst()->GetInst()->GetResolution().y / 2 }, {500l, Core::GetInst()->GetInst()->GetResolution().y}, 100);
 	AddObject(pBuilding, GROUP_TYPE::PLAYER);
 #pragma endregion
 
@@ -46,13 +47,12 @@ void Scene_Game::Update()
 	static float cooltime = 1.f;
 	if (MouseMgr::GetInst()->GetMouseLBtnDown() && cooltime <= 0.f)
 	{		
-		
 		Vec2 targetPos = MouseMgr::GetInst()->GetMousePos();
-		Vec2 turretPos = GetGroupObject(GROUP_TYPE::PLAYER)[0]->GetPos();
+		Vec2 turretPos = GetGroupObject(GROUP_TYPE::PLAYER)[1]->GetPos();
 		
 		Vec2 dir = targetPos - turretPos;
-
-		Missile* pMissile = new Missile(turretPos, dir, 1.f, L"ENEMY_MISSILE");
+		
+		Missile* pMissile = new Missile(turretPos, dir, 1.f, { L"ENEMY_MISSILE" }, L"PLAYER_MISSILE");
 
 		AddObject(pMissile, GROUP_TYPE::MISSILE_PLAYER);
 		cooltime = 1.f;
@@ -66,4 +66,7 @@ void Scene_Game::Update()
 	}
 
 	cooltime -= TimeMgr::GetInst()->GetfDT();
+	
+	CollisionMgr::GetInst()->CheckGroup(GROUP_TYPE::MISSILE_PLAYER, GROUP_TYPE::MISSILE_ENEMY);
+	CollisionMgr::GetInst()->CheckGroup(GROUP_TYPE::PLAYER, GROUP_TYPE::MISSILE_ENEMY);
 }

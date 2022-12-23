@@ -12,7 +12,7 @@ Missile* Enemy::MissileFire()
 	
 	Vec2 missilePos = Vec2(Core::GetInst()->GetResolution().x, (long)GetRandom(0, Core::GetInst()->GetResolution().y));
 	
-	Missile* pMissile = new Missile(missilePos, Vec2(-1.f, 0.f), 1.f, L"PLAYER_MISSILE");
+	Missile* pMissile = new Missile(missilePos, Vec2(-1.f, 0.f), 2.f, { L"PLAYER_MISSILE", L"Building" }, L"ENEMY_MISSILE");
 	
 	return pMissile;
 }

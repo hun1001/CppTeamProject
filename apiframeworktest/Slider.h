@@ -1,5 +1,8 @@
 #pragma once
-class Slider
-{
-};
+#include "Object.h"
 
+class Slider : public Object
+{
+public:
+	
+};

@@ -8,7 +8,12 @@ private:
     Vec2    m_vDir;
     Image* m_pImage;
 	float  m_fSpeed;
-	wstring m_targetTag;
+	vector<wstring> m_targetTag;
+
+    bool m_bIsMove;
+
+private:
+    void DefualtSetting();
     
 public:
     
@@ -24,10 +29,9 @@ public:
     virtual void EnterCollision(Collider* _pOther);
     virtual void BombMissile();
     CLONE(Missile);
+    
 public:
-    Missile();
-	Missile(Vec2 _vPos, Vec2 _vDir);
-	Missile(Vec2 _vPos, Vec2 _vDir, float _fSpeed, wstring _targetTag);
+	Missile(Vec2 _vPos, Vec2 _vDir, float _fSpeed, vector<wstring> _targetTag, wstring _name);
     
     ~Missile();
 };

@@ -11,6 +11,8 @@
 #include "Collider.h"
 #include "Animator.h"
 #include "Animation.h"
+#include "Image.h"
+
 Turret::Turret()
 {
 	// collider 새성
@@ -34,8 +36,7 @@ Turret::Turret()
 
 Turret::~Turret()
 {
-	//if(nullptr !=m_pImage)
-	//	delete m_pImage;
+	
 }
 
 void Turret::Update()
@@ -49,36 +50,7 @@ void Turret::Update()
 	{
 		vPos.y += 300.f * fDT;
 	}
-	/*if (KEY_HOLD(KEY::LEFT))
-	{
-		vPos.x -= 300.f * fDT;
-	}
-	if (KEY_HOLD(KEY::RIGHT))
-	{
-		vPos.x += 300.f * fDT;
-	}*/
-	//if (KEY_TAP(KEY::SPACE))
-	//{
-	//	CreateBullet();
-	//}
 	SetPos(vPos);
-	//GetAnimator()->Update();
-}
-
-void Turret::CreateBullet()
-{
-	Vec2 vBulletPos = GetPos();
-	vBulletPos.y -= GetScale().y / 2.f;
-
-	// 
-	Missile* pBullet = new Missile;
-	pBullet->SetName(L"Bullet_Player");
-	pBullet->SetPos(vBulletPos);
-	pBullet->SetScale(Vec2(25.f, 25.f));
-	pBullet->SetDir(Vec2(0.f, -1.f));
-	CreateObject(pBullet, GROUP_TYPE::MISSILE_PLAYER);
-	//Scene* pCurScene = SceneMgr::GetInst()->GetCurScene();
-	//pCurScene->AddObject(pBullet,GROUP_TYPE::BULLET);
 }
 
 void Turret::Render(HDC _dc)
@@ -88,14 +60,7 @@ void Turret::Render(HDC _dc)
 	int Height = (int)m_pImage->GetHeight();
 
 	Vec2 vPos = GetPos();
-	//BitBlt(_dc
-	//	,(int)(vPos.x - (float)(Width / 2))
-	//	,(int)(vPos.y - (float)(Height / 2))
-	//    , Width, Height
-	//    , m_pImage->GetDC()
-	//    , 0,0, SRCCOPY);
-
-	//마젠타 색상 뺄때 transparent: 투명한
+	
 	TransparentBlt(_dc
 		, (int)(vPos.x - (float)(Width / 2))
 		, (int)(vPos.y - (float)(Height / 2))

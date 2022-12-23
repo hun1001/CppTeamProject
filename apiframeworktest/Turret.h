@@ -15,8 +15,6 @@ public:
     //    , m_pImage(_origin.m_pImage)
     //{}
     ~Turret();
-private:
-    void CreateBullet();
 
 //    Player* Clone{ return new Player(*this); }
     CLONE(Turret);
