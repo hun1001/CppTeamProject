@@ -95,6 +95,9 @@
     <Filter Include="Engine\04. Object\GameObject\Missilelauncher">
       <UniqueIdentifier>{8d6099fc-b131-4423-9268-a570a49962de}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\04. Object\GameObject\CoolTime">
+      <UniqueIdentifier>{920d48e8-2c68-42ed-a179-aee427e45d5a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.h">
@@ -199,9 +202,6 @@
     <ClInclude Include="MouseMgr.h">
       <Filter>Engine\03. Manager\MouseMgr</Filter>
     </ClInclude>
-    <ClInclude Include="MissileLauncher.h">
-      <Filter>Engine\04. Object\GameObject\Missilelauncher</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="apiframeworktest.rc">
@@ -301,9 +301,6 @@
     </ClCompile>
     <ClCompile Include="MouseMgr.cpp">
       <Filter>Engine\03. Manager\MouseMgr</Filter>
-    </ClCompile>
-    <ClCompile Include="MissileLauncher.cpp">
-      <Filter>Engine\04. Object\GameObject\Missilelauncher</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
