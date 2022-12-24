@@ -11,6 +11,7 @@ private:
 	vector<wstring> m_targetTag;
 
     bool m_bIsMove;
+    Image* bombImg;
 
 private:
     void DefualtSetting();
@@ -26,6 +27,7 @@ public:
 public:
     virtual void Update() override;
     virtual void Render(HDC _dc) override;
+
     virtual void EnterCollision(Collider* _pOther);
     virtual void BombMissile();
     CLONE(Missile);

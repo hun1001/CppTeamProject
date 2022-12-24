@@ -34,6 +34,7 @@ void Scene::Render(HDC _dc)
 			if (!(*iter)->IsDead())
 			{
 				(*iter)->Render(_dc);
+				
 				iter++;
 			}
 			else

@@ -10,6 +10,7 @@
 #include "TimeMgr.h"
 #include "Building.h"
 #include "CollisionMgr.h"
+#include "Explosion.h"
 
 Scene_Game::Scene_Game()
 {
@@ -35,6 +36,9 @@ void Scene_Game::Enter()
 	pObj->SetPos(Vec2(200l, Core::GetInst()->GetResolution().y / 2));
 	pObj->SetScale(Vec2(100.f, 100.f));
 	AddObject(pObj, GROUP_TYPE::PLAYER);
+
+	
+	
 }
 
 void Scene_Game::Exit()
@@ -53,7 +57,6 @@ void Scene_Game::Update()
 		Vec2 dir = targetPos - turretPos;
 		
 		Missile* pMissile = new Missile(turretPos, dir, 2.f, { L"ENEMY_MISSILE" }, L"PLAYER_MISSILE");
-
 		AddObject(pMissile, GROUP_TYPE::MISSILE_PLAYER);
 		cooltime = 1.f;
 	}

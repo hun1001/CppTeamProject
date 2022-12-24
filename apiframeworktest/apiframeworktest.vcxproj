@@ -158,6 +158,7 @@
     <ClInclude Include="apiframeworktest.h" />
     <ClInclude Include="Building.h" />
     <ClInclude Include="Button.h" />
+    <ClInclude Include="Explosion.h" />
     <ClInclude Include="Missile.h" />
     <ClInclude Include="BWindow.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
@@ -200,6 +201,7 @@
     <ClCompile Include="Animator.cpp" />
     <ClCompile Include="Building.cpp" />
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Explosion.cpp" />
     <ClCompile Include="Missile.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="CollisionMgr.cpp" />

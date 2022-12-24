@@ -33,6 +33,7 @@ public:
 	virtual void	Update() abstract;
 	virtual void	FinalUpdate() final;
 	virtual void	Render(HDC _dc);
+
 	virtual void	StayCollision(Collider* _pOther) {}
 	virtual void	EnterCollision(Collider* _pOther) {}
 	virtual void	ExitCollision(Collider* _pOther) {}

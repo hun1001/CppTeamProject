@@ -75,6 +75,7 @@ void Object::Render(HDC _dc)
 	Component_Render(_dc);
 }
 
+
 void Object::Component_Render(HDC _dc)
 {
 	if (nullptr != m_pCollider)
@@ -83,5 +84,6 @@ void Object::Component_Render(HDC _dc)
 	}
 	if (nullptr != m_pAnimator)
 		m_pAnimator->Render(_dc);
+
 }
 
