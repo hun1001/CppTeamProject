@@ -7,6 +7,7 @@
 #include "Collider.h"
 #include "Animation.h"
 #include "Animator.h"
+#include "SoundMgr.h"
 
 Missile::Missile(Vec2 _vPos, Vec2 _vDir, float _fSpeed, vector<wstring> _targetTag, wstring _name) : m_vDir(_vDir), m_pImage(nullptr), m_fSpeed(_fSpeed), m_bIsMove(true)
 {
@@ -32,6 +33,10 @@ void Missile::BombMissile()
 	GetAnimator()->CreateAnimation(L"Explosion", bombImg, Vec2(0.f, 0.f), Vec2(166.f, bombImg->GetHeight()), Vec2(166.f, 0.f), 6, 0.6f);
 	GetAnimator()->Play(L"Explosion", false);
 
+	SoundMgr::GetInst()->Stop(SOUND_CHANNEL::SC_EFFECT);
+	
+	SoundMgr::GetInst()->Play(L"MissileExplosion");
+	
 	DeleteObject(this);
 }
 
@@ -45,6 +50,11 @@ void Missile::DefualtSetting()
 	m_vDir.Normalize();
 	CreateCollider();
 	GetCollider()->SetScale(Vec2(150.f, 50.f));
+
+	SoundMgr::GetInst()->LoadSound(L"MissileMove", false, L"Sound\\Missile.wav");
+	SoundMgr::GetInst()->Play(L"MissileMove");
+
+	SoundMgr::GetInst()->LoadSound(L"MissileExplosion", false, L"Sound\\Bomb.mp3");
 }
 
 void Missile::Update()

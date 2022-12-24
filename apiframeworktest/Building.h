@@ -27,9 +27,10 @@ public:
 		if (m_iHp <= 0)
 		{
 			m_iHp = 0;
-			DeleteObject(this);
+			ChangeScene(SCENE_TYPE::TITLE);
 		}
 	}
+	
 	const int& GetHp() const { return m_iHp; }
 
 	void EnterCollision(Collider* _pOther) override;
