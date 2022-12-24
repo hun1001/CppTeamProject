@@ -12,7 +12,7 @@ Missile* Enemy::MissileFire()
 	
 	Vec2 missilePos = Vec2(Core::GetInst()->GetResolution().x, (long)GetRandom(0, Core::GetInst()->GetResolution().y));
 	
-	Missile* pMissile = new Missile(missilePos, Vec2(-1.f, 0.f), 2.f, { L"PLAYER_MISSILE", L"Building" }, L"ENEMY_MISSILE");
+	Missile* pMissile = new Missile(missilePos, Vec2(-1.f, 0.f), 3.f, { L"PLAYER_MISSILE", L"Building" }, L"ENEMY_MISSILE");
 	
 	return pMissile;
 }
@@ -23,7 +23,7 @@ void Enemy::Update()
 	m_cooltime -= TimeMgr::GetInst()->GetfDT();
 }
 
-Enemy::Enemy() : m_bFire(false), m_cooltime(1.5f), m_delay(3.f)
+Enemy::Enemy() : m_bFire(false), m_cooltime(1.5f), m_delay(2.5f)
 {
 }
 

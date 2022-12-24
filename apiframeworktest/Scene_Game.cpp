@@ -52,7 +52,7 @@ void Scene_Game::Update()
 		
 		Vec2 dir = targetPos - turretPos;
 		
-		Missile* pMissile = new Missile(turretPos, dir, 1.f, { L"ENEMY_MISSILE" }, L"PLAYER_MISSILE");
+		Missile* pMissile = new Missile(turretPos, dir, 2.f, { L"ENEMY_MISSILE" }, L"PLAYER_MISSILE");
 
 		AddObject(pMissile, GROUP_TYPE::MISSILE_PLAYER);
 		cooltime = 1.f;
