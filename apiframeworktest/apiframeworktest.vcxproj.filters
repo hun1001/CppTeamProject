@@ -214,6 +214,7 @@
     <ClInclude Include="Building.h">
       <Filter>Engine\04. Object\GameObject\Building</Filter>
     </ClInclude>
+    <ClInclude Include="Explosion.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="apiframeworktest.rc">
@@ -320,5 +321,6 @@
     <ClCompile Include="Building.cpp">
       <Filter>Engine\04. Object\GameObject\Building</Filter>
     </ClCompile>
+    <ClCompile Include="Explosion.cpp" />
   </ItemGroup>
 </Project>
